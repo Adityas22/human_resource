@@ -26,4 +26,16 @@ class Karyawan extends Model
         'status',
         'gaji'
     ];
+
+    public function departemen()
+    {
+        return $this->belongsTo(Departemen::class, 'departemen_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'roles _id');
+    }
+
+    
 }

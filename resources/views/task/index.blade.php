@@ -44,29 +44,34 @@
                                 @elseif ($status == 'pending')
                                     <span class="text-warning fw-semibold">Pending</span>
                                 @else
-                                    <span class="text-info fw-semibold">{{ ($status) }}</span>
+                                    {{-- <a class="text-info fw-semibold">{{ ($status) }}</a> --}}
                                 @endif
                             </td>
                             <td>
                                 <!-- Tombol Detail -->
-                                <button class="btn btn-info btn-sm" data-bs-toggle="modal" href="{{ route('task.show',  $task->id) }}">
+                                <a class="btn btn-info btn-sm" href="{{ route('task.show',  $task->id) }}">
                                     Detail
-                                </button>
+                                </a>
                                 @php
                                     $status = strtolower(trim($task->status));
                                 @endphp
 
                                   @if ($status == 'pending')
                                         {{-- Kalau pending, hanya tampil tombol Selesai --}}
-                                        <a href="" class="btn btn-success btn-sm">Selesai</a>
+                                        <a href="{{ route('task.selesai', $task->id )}}" class="btn btn-success btn-sm">Selesai</a>
 
                                     @elseif ($status == 'selesai')
                                         {{-- Kalau sukses, hanya tampil tombol Pending --}}
-                                        <a href="" class="btn btn-warning btn-sm">Pending</a>
+                                        <a href="{{ route('task.pending', $task->id )}}" class="btn btn-warning btn-sm">Pending</a>
                                     @endif
 
-                                <a href="#" class="btn btn-secondary btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                                <a href="{{ route('task.edit', $task->id) }}" class="btn btn-secondary btn-sm">Edit</a>
+                                {{-- <a href="{{ route('task.delete', $task->id) }}" class="btn btn-danger btn-sm">Hapus</a> --}}
+                                <form action="{{ route('task.destroy', $task->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah kamu yakin ingin menghapus data ini?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

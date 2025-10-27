@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\KaryawanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,7 +14,14 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
 Route::resource('/task', TaskController::class); //fungsi resource =  membuat sekumpulan route secara otomatis untuk operasi-operasi CRUD 
+Route::resource('/karyawan', KaryawanController::class);
+
+// handle route resource task
+Route::get('/task/selesai/{id}', [TaskController::class, 'selesai'])->name('task.selesai');
+Route::get('/task/pending/{id}', [TaskController::class, 'pending'])->name('task.pending');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

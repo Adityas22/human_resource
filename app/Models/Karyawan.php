@@ -22,7 +22,7 @@ class Karyawan extends Model
         'tgl_lahir',
         'tgl_rekrutment',
         'departemen_id',
-        'role_id',
+        'roles_id',
         'status',
         'gaji'
     ];
@@ -34,8 +34,9 @@ class Karyawan extends Model
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'roles _id');
+        return $this->belongsTo(Role::class, 'roles_id');
     }
+    
 
     
 }

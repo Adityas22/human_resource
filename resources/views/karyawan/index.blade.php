@@ -12,7 +12,7 @@
                 @endif
                 <h5 class="card-title">Daftar Karyawan</h5>
                 {{-- mengarah controler task  --}}
-                <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm"> 
+                <a href="{{ route('karyawan.create') }}" class="btn btn-primary btn-sm"> 
                     <i class="bi bi-plus-circle"></i> Tambah Data
                 </a>
             </div>
@@ -23,10 +23,10 @@
                     <thead>
                         <tr>
                             <th>Nama</th>
-                            <th>Email</th>
+                            {{-- <th>Email</th>
                             <th>Alamat</th>
                             <th>Tanggal Lahir</th>
-                            <th>Tanggal Rekrutmen</th>
+                            <th>Tanggal Rekrutmen</th> --}}
                             <th>Departemen</th>
                             <th>Role</th>
                             <th>Status</th>
@@ -38,35 +38,37 @@
                         @foreach ($karyawans as $karyawan)
                         <tr>
                             <td>{{ $karyawan->nama }}</td>
-                            <td>{{ $karyawan->email }}</td>
+                            {{-- <td>{{ $karyawan->email }}</td>
                             <td>{{ $karyawan->alamat }}</td>
                             <td>{{ \Carbon\Carbon::parse($karyawan->tgl_lahir)->format('d M Y') }}</td>
-                            <td>{{ \Carbon\Carbon::parse($karyawan->tgl_rekrutment)->format('d M Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($karyawan->tgl_rekrutment)->format('d M Y') }}</td> --}}
                             <td>{{ $karyawan->departemen->nama }}</td>
                             <td>{{ $karyawan->role->nama }}</td>
-                            <td>{{ $karyawan->status }}</td>
+                            <td>
+                                {{-- {{ $karyawan->status }} --}}
+                                
+                                @if ( strtolower(trim($karyawan->status)) == 'aktif')
+                                    <span class="badge bg-success px-3 py-2">Aktif</span>
+                                @else
+                                    <span class="badge bg-warning text-dark px-3 py-2">Nonaktif</span>
+                                @endif
+                            </td>
                             <td>{{ $karyawan->gaji }}</td>
 
                             <td>
                                 <!-- Tombol Detail -->
-                                <a class="btn btn-info btn-sm" href="">
+                                <a class="btn btn-info btn-sm" href="{{ route('karyawan.show', $karyawan->id) }}">
                                     Detail
                                 </a>
-                                @php
-                                    $status = strtolower(trim($karyawan->status));
-                                @endphp
 
-                                  @if ($status == 'non-active')
-                                        {{-- Kalau pending, hanya tampil tombol Selesai --}}
-                                        <a href="" class="btn btn-success btn-sm">Active</a>
-
-                                    @elseif ($status == 'active')
-                                        {{-- Kalau sukses, hanya tampil tombol Pending --}}
-                                        <a href="" class="btn btn-warning btn-sm">Non-Active</a>
+                                    @if (strtolower(trim($karyawan->status)) == 'nonaktif')
+                                        <a href="{{ route('karyawan.active', $karyawan->id) }}" class="btn btn-success btn-sm">Aktif</a>
+                                    @elseif (strtolower(trim($karyawan->status)) == 'aktif')
+                                        <a href="{{ route('karyawan.nonActive', $karyawan->id) }}" class="btn btn-warning btn-sm">Non-Aktif</a>
                                     @endif
 
-                                <a href="" class="btn btn-secondary btn-sm">Edit</a>
-                                <form action="" method="POST" class="d-inline" onsubmit="return confirm('Apakah kamu yakin ingin menghapus data ini?');">
+                                <a href="{{ route('karyawan.edit', $karyawan->id) }}" class="btn btn-secondary btn-sm">Edit</a>
+                                <form action="{{ route('karyawan.destroy', $karyawan->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah kamu yakin ingin menghapus data ini?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

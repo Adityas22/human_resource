@@ -12,7 +12,7 @@
                 @endif
                 <h5 class="card-title">Daftar Departemen</h5>
                 {{-- mengarah controler departemen  --}}
-                <a href="" class="btn btn-primary btn-sm"> 
+                <a href="{{ route('departemen.create') }}" class="btn btn-primary btn-sm"> 
                     <i class="bi bi-plus-circle"></i> Tambah Data
                 </a>
             </div>
@@ -37,7 +37,7 @@
                             <td>
                                 @php
                                     $status = strtolower(trim($departemen->status));
-                                @endphp
+                                @endphp 
                                 @if ($status == 'aktif')
                                     <span class="text-success fw-semibold">Aktif</span>
                                 @elseif ($status == 'nonaktif')
@@ -49,7 +49,7 @@
                             <td>{{ $departemen->alamat }}</td>
                             <td>
                                 <!-- Tombol Detail -->
-                                <a class="btn btn-info btn-sm" href="">
+                                <a class="btn btn-info btn-sm" href="{{ route('departemen.show', $departemen->id) }}">
                                     Detail
                                 </a>
                                 @php
@@ -58,11 +58,11 @@
 
                                   @if ($status == 'nonaktif')
                                         {{-- Kalau pending, hanya tampil tombol Selesai --}}
-                                        <a href="" class="btn btn-success btn-sm">Aktif</a>
+                                        <a href="{{ route('departemen.aktif', $departemen->id) }}" class="btn btn-success btn-sm">Aktif</a>
 
                                     @elseif ($status == 'aktif')
                                         {{-- Kalau sukses, hanya tampil tombol Pending --}}
-                                        <a href="" class="btn btn-warning btn-sm">Non Aktif</a>
+                                        <a href="{{ route('departemen.nonaktif', $departemen->id) }}" class="btn btn-warning btn-sm">Non Aktif</a>
                                     @endif
 
                                 <a href="{{ route('departemen.edit', $departemen->id) }}" class="btn btn-secondary btn-sm">Edit</a>

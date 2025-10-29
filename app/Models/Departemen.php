@@ -17,5 +17,7 @@ class Departemen extends Model
     protected $fillable = [
         'nama',
         'deskripsi',
+        'status',
+        'alamat'
     ];
 }

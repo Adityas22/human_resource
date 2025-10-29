@@ -42,7 +42,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ url('/task') }}">Task</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/karyawan') }}">Karyawan</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/departemen') }}">Departemen</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url('/roles') }}">Roles</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('/role') }}">Roles</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/kehadiran') }}">Kehadiran</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/payrolls') }}">Payrolls</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/cuti') }}">Cuti</a></li>

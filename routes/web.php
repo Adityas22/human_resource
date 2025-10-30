@@ -7,6 +7,8 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\PayrollController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,7 +39,13 @@ Route::get('/departemen/nonaktif/{id}', [DepartemenController::class, 'nonaktif'
 
 Route::resource('/role', RoleController::class);
 
+Route::resource('kehadiran', KehadiranController::class)->parameters([
+    'kehadiran' => 'kehadiran'
+]);
 
+Route::resource('payroll', PayrollController::class)->parameters([
+    'payroll' => 'payroll'
+]);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

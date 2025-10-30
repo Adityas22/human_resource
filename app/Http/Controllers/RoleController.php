@@ -32,17 +32,17 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
-        // return view('role.edit', compact('role'));
+        return view('role.edit', compact('role'));
     }
 
     public function update(Request $request, Role $role)
     {
-        // $validateData = $request->validate([
-        //     'name' => 'required|max:255|string',
-        //     'deskripsi' => 'required|max:255|string',
-        // ]);
-        // $role->update($validateData);
-        // return redirect()->route('role.index')->with('success', 'Data Berhasil Diubah');
+        $validateData = $request->validate([
+            'nama' => 'required|max:255|string',
+            'deskripsi' => 'required|max:255|string',
+        ]);
+        $role->update($validateData);
+        return redirect()->route('role.index')->with('success', 'Data Berhasil Diubah');
     }
 
     // public function show(Role $role)
@@ -53,7 +53,7 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        // return redirect()->route('role.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('role.index')->with('success', 'Data Berhasil Dihapus');
     }
     
 }

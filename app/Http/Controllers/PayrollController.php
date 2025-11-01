@@ -11,8 +11,15 @@ class PayrollController extends Controller
     //
     public function index()
     {
-        $payrolls = Payroll::all();
-        $karyawans = Karyawan::all();
+         if(session('role') == 'HR'){
+            $payrolls = Payroll::all();
+            $karyawans = Karyawan::all();
+        }else{
+            $payrolls = Payroll::where('karyawan_id', session('karyawan_id'))->get();
+            $karyawans = Karyawan::all();
+        }
+        // $payrolls = Payroll::all();
+        
         return view('payroll.index', compact('payrolls', 'karyawans'));
     }
 

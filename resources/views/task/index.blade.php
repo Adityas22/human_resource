@@ -10,11 +10,16 @@
                         {{ session('success') }}
                     </div>
                 @endif
+
                 <h5 class="card-title">Daftar Tugas</h5>
+
+                @if (session('role') == 'HR')
+
                 {{-- mengarah controler task  --}}
                 <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm"> 
                     <i class="bi bi-plus-circle"></i> Tambah Data
                 </a>
+                @endif
             </div>
             <!-- Tombol Tambah Data -->
             
@@ -56,15 +61,16 @@
                                     $status = strtolower(trim($task->status));
                                 @endphp
 
-                                  @if ($status == 'pending')
-                                        {{-- Kalau pending, hanya tampil tombol Selesai --}}
-                                        <a href="{{ route('task.selesai', $task->id )}}" class="btn btn-success btn-sm">Selesai</a>
+                                @if ($status == 'pending')
+                                    {{-- Kalau pending, hanya tampil tombol Selesai --}}
+                                    <a href="{{ route('task.selesai', $task->id )}}" class="btn btn-success btn-sm">Selesai</a>
 
-                                    @elseif ($status == 'selesai')
-                                        {{-- Kalau sukses, hanya tampil tombol Pending --}}
-                                        <a href="{{ route('task.pending', $task->id )}}" class="btn btn-warning btn-sm">Pending</a>
-                                    @endif
+                                @elseif ($status == 'selesai')
+                                    {{-- Kalau sukses, hanya tampil tombol Pending --}}
+                                    <a href="{{ route('task.pending', $task->id )}}" class="btn btn-warning btn-sm">Pending</a>
+                                @endif
 
+                                @if (session('role') == 'HR')
                                 <a href="{{ route('task.edit', $task->id) }}" class="btn btn-secondary btn-sm">Edit</a>
                                 {{-- <a href="{{ route('task.delete', $task->id) }}" class="btn btn-danger btn-sm">Hapus</a> --}}
                                 <form action="{{ route('task.destroy', $task->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah kamu yakin ingin menghapus data ini?');">
@@ -72,6 +78,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                 </form>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

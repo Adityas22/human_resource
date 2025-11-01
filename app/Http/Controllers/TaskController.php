@@ -11,7 +11,15 @@ class TaskController extends Controller
     //
     public function index()
     {
-        $tasks = Task::all();
+        if(session('role') == 'HR'){
+            $tasks = Task::all();
+        }
+        else
+        {
+            // foreignkey dari tabel task adalah karyawan_id
+            $tasks = Task::where('penugasan', session('karyawan_id'))->get(); 
+        }
+        // $tasks = Task::all();
         // dd($tasks);
 
         return view('task.index', compact('tasks'));

@@ -11,10 +11,14 @@
                     </div>
                 @endif
                 <h5 class="card-title">Daftar Payroll</h5>
+                @if (session('role') == 'HR')
+                    
+                
                 {{-- mengarah controler payroll  --}}
                 <a href="{{ route('payroll.create') }}" class="btn btn-primary btn-sm"> 
                     <i class="bi bi-plus-circle"></i> Tambah Data
                 </a>
+                @endif
             </div>
             <!-- Tombol Tambah Data -->
             
@@ -45,6 +49,7 @@
                                 <a class="btn btn-info btn-sm" href="{{ route('payroll.show',  $payroll->id) }}">
                                     Cetak
                                 </a>
+                                @if (session('role') == 'HR')
                                 <a href="{{ route('payroll.edit', $payroll->id) }}" class="btn btn-secondary btn-sm">Edit</a>
                                 {{-- <a href="{{ route('payroll.delete', $payroll->id) }}" class="btn btn-danger btn-sm">Hapus</a> --}}
                                 <form action="{{ route('payroll.destroy', $payroll->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah kamu yakin ingin menghapus data ini?');">
@@ -52,6 +57,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                 </form>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

@@ -80,7 +80,7 @@ class KaryawanController extends Controller
     public function active($id)
     {
         $karyawan = Karyawan::findOrFail($id);
-        $karyawan->status = 'active';
+        $karyawan->status = 'aktif';
         $karyawan->save();
 
         return redirect()->route('karyawan.index')->with('success', 'Status karyawan berhasil diubah menjadi selesai.');
@@ -89,7 +89,7 @@ class KaryawanController extends Controller
     public function nonActive($id)
     {
         $karyawan = Karyawan::findOrFail($id);
-        $karyawan->status = 'non-acitve';
+        $karyawan->status = 'nonaktif';
         $karyawan->save();
 
         return redirect()->route('karyawan.index')->with('success', 'Status karyawan berhasil diubah menjadi pending.');

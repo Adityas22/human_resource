@@ -71,15 +71,42 @@
 
                                         <a href="{{ route('karyawan.edit', $karyawan->id) }}"
                                             class="btn btn-secondary btn-sm">Edit</a>
-                                        <form action="{{ route('karyawan.destroy', $karyawan->id) }}" method="POST"
-                                            class="d-inline"
-                                            onsubmit="return confirm('Apakah kamu yakin ingin menghapus data ini?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                        </form>
+                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#modalHapus{{ $karyawan->id }}">
+                                            Hapus
+                                        </button>
                                     </td>
                                 </tr>
+                                <!-- Modal Konfirmasi Hapus -->
+                                <div class="modal fade" id="modalHapus{{ $karyawan->id }}" tabindex="-1"
+                                    aria-labelledby="modalHapusLabel{{ $karyawan->id }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content border-0 shadow">
+                                            <div class="modal-header bg-danger text-white">
+                                                <h5 class="modal-title" id="modalHapusLabel{{ $karyawan->id }}">
+                                                    <i class="bi bi-exclamation-triangle-fill me-2"></i> Konfirmasi Hapus
+                                                </h5>
+                                                <button type="button" class="btn-close btn-close-white"
+                                                    data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <p>Apakah kamu yakin ingin menghapus karyawan
+                                                    <strong>{{ $karyawan->nama }}</strong> ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <form action="{{ route('karyawan.destroy', $karyawan->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                         </tbody>
                     </table>

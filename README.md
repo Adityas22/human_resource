@@ -60,74 +60,94 @@ Tampilan default dari Laravel Breeze (Login & Register).
 
 ### 🔹 2. Dashboard HR
 Menampilkan seluruh menu navigasi utama untuk pengelolaan karyawan:
-> ![Dashboard HR](docs/screenshots/dashboard_hr.png)
-
-#### Contoh tampilan sidebar HR:
-> ![Sidebar HR](docs/screenshots/sidebar_hr.png)
+> ![Dashboard HR](ss/HR_Index.png)
 
 ---
 
 ### 🔹 3. Dashboard Non-HR (IT / Keuangan)
 Tampilan lebih sederhana — hanya menampilkan **nama user** di bagian atas dan menu terbatas:
-> ![Dashboard Non-HR](docs/screenshots/dashboard_nonhr.png)
-
-#### Contoh tampilan header Non-HR:
-> ![Header Non-HR](docs/screenshots/header_nonhr.png)
-
-> Catatan: Tidak ada menu **Employee**, **Departemen**, atau **Role** di sidebar Non-HR.
+> ![Dashboard Non-HR](ss/All_Index.png)
 
 ---
 
-## ⚙️ CRUD Screenshots
+## ⚙️Screenshots HR
 
 ### 🧾 Task
 | Aksi | Screenshot |
 |------|-------------|
-| Add | ![Add Task](docs/screenshots/task_add.png) |
-| Edit | ![Edit Task](docs/screenshots/task_edit.png) |
-| Delete | ![Delete Task](docs/screenshots/task_delete.png) |
-| Index | ![Task List](docs/screenshots/task_index.png) |
+| Add | ![Add Task](ss/HR_Task_Add.png) |
+| Edit | ![Edit Task](ss/HR_Task_Edit.png) |
+| Delete | ![Delete Task](ss/HR_Task_Delete.png) |
+| Detail | ![Task Detail](ss/HR_Task_Show.png) |
+| Index | ![Task List](ss/HR_Task_index.png) |
 
 ---
 
-### 👥 Employee (Hanya HR)
+### 👥 Employee
 | Aksi | Screenshot |
 |------|-------------|
-| Add | ![Add Employee](docs/screenshots/employee_add.png) |
-| Edit | ![Edit Employee](docs/screenshots/employee_edit.png) |
-| Delete | ![Delete Employee](docs/screenshots/employee_delete.png) |
-| Index | ![Employee List](docs/screenshots/employee_index.png) |
+| Add | ![Add Employee](ss/HR_Employee_Add.png) |
+| Edit | ![Edit Employee](ss/HR_Employee_Edit.png) |
+| Delete | ![Delete Employee](ss/HR_Employee_Delete.png) |
+| Detail | ![Detail Employee](ss/HR_Employee_Show.png) |
+| Index | ![Employee List](ss/HR_Employee_Index.png) |
+
 
 ---
 
-### 🏢 Departemen (Hanya HR)
-> ![Departemen List](docs/screenshots/departemen_index.png)
+### 🏢 Departemen
+| Aksi | Screenshot |
+|------|-------------|
+| Add (Check In) | ![Departemen Add](ss/HR_Departemen_Add.png) |
+| Edit | ![Departemen Edit](ss/HR_Departemen_Edit.png) |
+| Delete | ![Departemen Delete](ss/HR_Departemen_Delete.png) |
+| Detail | ![Departemen Detail](ss/HR_Departemen_Show.png) |
+| Index | ![Departemen Index](ss/HR_Departemen_Index.png) |
 
 ---
 
 ### 📅 Presence
 | Aksi | Screenshot |
 |------|-------------|
-| Add (Check In) | ![Add Presence](docs/screenshots/presence_add.png) |
-| Index | ![Presence Index](docs/screenshots/presence_index.png) |
+| Add | ![Presence Add](ss/HR_Presence_Add.png) |
+| Edit | ![Presence Edit](ss/HR_Presence_Edit.png) |
+| Delete| ![Presence Delete](ss/HR_Presence_Delete.png) |
+| Index| ![Presence Index](ss/HR_Presence_Index.png) |
 
 ---
 
 ### 💰 Payroll
 | Aksi | Screenshot |
 |------|-------------|
-| Index (HR) | ![Payroll HR](docs/screenshots/payroll_index_hr.png) |
-| Index (Non-HR) | ![Payroll Non-HR](docs/screenshots/payroll_index_nonhr.png) |
-| Detail | ![Payroll Detail](docs/screenshots/payroll_show.png) |
+| Add| ![Payroll Add](ss/HR_Payroll_Add.png) |
+| Edit | ![Payroll Edit](ss/HR_Payroll_Edit.png) |
+| Delete | ![Payroll Delete](ss/HR_Payroll_Delete.png) |
+| Detail | ![Payroll Detail](ss/HR_Payroll_Show.png) |
+| Index | ![Payroll Index](ss/HR_Payroll_Index.png) |
+| Cetak | ![Payroll Cetak](ss/HR_Payroll_Cetak.png) |
 
 ---
 
 ### 🌴 Cuti
 | Aksi | Screenshot |
 |------|-------------|
-| Add | ![Add Leave](docs/screenshots/cuti_add.png) |
-| Edit | ![Edit Leave](docs/screenshots/cuti_edit.png) |
-| Index | ![List Leave](docs/screenshots/cuti_index.png) |
+| Add | ![Add Leave](ss/HR_Cuti_Add.png) |
+| Edit | ![Edit Leave](ss/HR_Cuti_Edit.png) |
+| Delete | ![Delete Leave](ss/HR_Cuti_Delete.png) |
+| Index | ![List Leave](ss/HR_Cuti_Index.png) |
+
+---
+
+## ⚙️Screenshots HR
+
+### 🧾 Task
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Add Task](ss/Hg) |
+| Edit | ![Edit Task](ss/Hg) |
+| Delete | ![Delete Task](ss/ng) |
+| Detail | ![Task Detail](ssg) |
+| Index | ![Task List](ss/HRng) |
 
 ---
 

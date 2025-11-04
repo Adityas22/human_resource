@@ -9,7 +9,7 @@ Website ini dirancang untuk mengelola data karyawan dengan sistem peran (**role-
 
 ### 🔐 Autentikasi
 - Login dan Register menggunakan Laravel Breeze.
-- Middleware untuk membedakan akses **HR** dan **non-HR**.
+- Middleware untuk membedakan akses **HR** dan Non-HR **(IT, Keuangan)**.
 - Redirect otomatis setelah login sesuai role.
 
 ---
@@ -30,9 +30,8 @@ Memiliki akses penuh ke seluruh menu dan fitur berikut:
 Hanya memiliki akses terbatas:
 - **Task** → Hanya dapat melihat daftar tugas.  
 - **Presence** → Dapat menambah kehadiran (Check In/Out).  
-- **Payroll** → Hanya dapat melihat data penggajian pribadi.  
+- **Payroll** → Hanya dapat melihat dan cetak data penggajian pribadi.  
 - **Cuti (Leave)** → Dapat menambah pengajuan cuti dan melihat status.  
-> Tampilan non-HR lebih sederhana — hanya menampilkan nama pengguna tanpa menu tambahan seperti *Employee* dan *Departemen*.
 
 ---
 
@@ -55,7 +54,7 @@ Hanya memiliki akses terbatas:
 
 ### 🔹 1. Halaman Awal / Login
 Tampilan default dari Laravel Breeze (Login & Register).  
-> ![Login Page](docs/screenshots/login.png)
+> ![Login Page](ss/login.png)
 
 ---
 

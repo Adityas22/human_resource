@@ -138,7 +138,7 @@ Tampilan lebih sederhana — hanya menampilkan **nama user** di bagian atas dan 
 
 ---
 
-## ⚙️Screenshots HR
+## ⚙️Screenshots Non-HR
 
 ### 🧾 Task
 | Aksi | Screenshot |

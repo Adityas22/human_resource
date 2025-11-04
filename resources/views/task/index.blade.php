@@ -60,17 +60,18 @@
                                             $status = strtolower(trim($task->status));
                                         @endphp
 
-                                        @if ($status == 'pending')
-                                            {{-- Kalau pending, hanya tampil tombol Selesai --}}
-                                            <a href="{{ route('task.selesai', $task->id) }}"
-                                                class="btn btn-success btn-sm">Selesai</a>
-                                        @elseif ($status == 'selesai')
-                                            {{-- Kalau sukses, hanya tampil tombol Pending --}}
-                                            <a href="{{ route('task.pending', $task->id) }}"
-                                                class="btn btn-warning btn-sm">Pending</a>
-                                        @endif
-
                                         @if (session('role') == 'HR')
+                                            @if ($status == 'pending')
+                                                {{-- Kalau pending, hanya tampil tombol Selesai --}}
+                                                <a href="{{ route('task.selesai', $task->id) }}"
+                                                    class="btn btn-success btn-sm">Selesai</a>
+                                            @elseif ($status == 'selesai')
+                                                {{-- Kalau sukses, hanya tampil tombol Pending --}}
+                                                <a href="{{ route('task.pending', $task->id) }}"
+                                                    class="btn btn-warning btn-sm">Pending</a>
+                                            @endif
+
+
                                             <a href="{{ route('task.edit', $task->id) }}"
                                                 class="btn btn-secondary btn-sm">Edit</a>
                                             {{-- <a href="{{ route('task.delete', $task->id) }}" class="btn btn-danger btn-sm">Hapus</a> --}}

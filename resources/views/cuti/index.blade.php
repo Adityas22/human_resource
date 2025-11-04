@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="modal-body text-center">
                                                 <p>Apakah kamu yakin ingin menghapus data cuti
-                                                    <strong>{{ $cuti->nama }}</strong>?
+                                                    <strong>{{ $cuti->karyawan->nama }}</strong>?
                                                 </p>
                                             </div>
                                             <div class="modal-footer justify-content-center">

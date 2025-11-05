@@ -209,3 +209,12 @@ php artisan migrate --seed
 
 # 6. Jalankan server
 php artisan serve
+
+kalau mau demo langsung 
+HR
+username = test@example.com
+password = password
+
+bukan HR
+username = test2@example.com
+password = password

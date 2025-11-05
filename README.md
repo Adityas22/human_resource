@@ -60,13 +60,13 @@ Tampilan default dari Laravel Breeze (Login & Register).
 
 ### 🔹 2. Dashboard HR
 Menampilkan seluruh menu navigasi utama untuk pengelolaan karyawan:
-> ![Dashboard HR](ss/HR_Index.png)
+> ![Dashboard HR](ss/HR_dahsboard_Light.png)
 
 ---
 
 ### 🔹 3. Dashboard Non-HR (IT / Keuangan)
 Tampilan lebih sederhana — hanya menampilkan **nama user** di bagian atas dan menu terbatas:
-> ![Dashboard Non-HR](ss/All_Index.png)
+> ![Dashboard Non-HR](ss/HR_Index.png)
 
 ---
 

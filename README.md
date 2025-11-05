@@ -178,7 +178,7 @@ Tampilan lebih sederhana — hanya menampilkan **nama user** di bagian atas dan 
 | Framework | Laravel 12 |
 | Autentikasi | Laravel Breeze |
 | Database | MySQL |
-| Frontend | Blade Template, Bootstrap |
+| Frontend | Blade Bootstrap 5 |
 | Bahasa | PHP 8+, HTML, CSS, JS |
 | Tools | Composer, Artisan CLI |
 

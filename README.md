@@ -200,7 +200,7 @@ cp .env.example .env
 php artisan key:generate
 
 # 4. Atur koneksi database di .env
-DB_DATABASE=hr_management
+DB_DATABASE=humanresourceapp
 DB_USERNAME=root
 DB_PASSWORD=
 

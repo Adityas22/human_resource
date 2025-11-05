@@ -143,11 +143,31 @@ Tampilan lebih sederhana — hanya menampilkan **nama user** di bagian atas dan 
 ### 🧾 Task
 | Aksi | Screenshot |
 |------|-------------|
-| Add | ![Add Task](ss/Hg) |
-| Edit | ![Edit Task](ss/Hg) |
-| Delete | ![Delete Task](ss/ng) |
-| Detail | ![Task Detail](ssg) |
-| Index | ![Task List](ss/HRng) |
+| Index | ![Task List](ss/User_Task_Index.png) |
+
+---
+
+### 📅 Presence
+| Aksi | Screenshot |
+|------|-------------|
+| Checkin | ![Checkin Presence](ss/User_Presence_Add.png) |
+| Checkout | ![Checkout Presence](ss/User_Presence_Checkout.png) |
+| Index | ![Presence List](ss/User_Presence_Index.png) |
+
+---
+
+### 💰 Payroll
+| Aksi | Screenshot |
+|------|-------------|
+| Index | ![Task List](ss/User_Payroll_Index.png) |
+
+---
+
+### 🌴 Cuti
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Add Task](ss/User_Cuti_Add.png) |
+| Index | ![Task List](ss/User_Cuti_Index.png) |
 
 ---
 

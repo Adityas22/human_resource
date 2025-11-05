@@ -1,61 +1,211 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧭 HR Management System – Laravel 12 + Breeze
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem ini dikembangkan menggunakan **Laravel 12** dengan **Laravel Breeze** sebagai autentikasi dasar.  
+Website ini dirancang untuk mengelola data karyawan dengan sistem peran (**role-based access control**) yaitu **HR** dan **non-HR** (seperti IT, Keuangan, dll).
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🔐 Autentikasi
+- Login dan Register menggunakan Laravel Breeze.
+- Middleware untuk membedakan akses **HR** dan Non-HR **(IT, Keuangan)**.
+- Redirect otomatis setelah login sesuai role.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🧑‍💼 Role & Akses
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. **Role HR**
+Memiliki akses penuh ke seluruh menu dan fitur berikut:
+- **Task** → CRUD tugas untuk karyawan.  
+- **Employee** → CRUD data karyawan.  
+- **Departemen** → CRUD data departemen.  
+- **Role** → CRUD jabatan atau posisi.  
+- **Presence (Kehadiran)** → Melihat dan menambah data kehadiran karyawan.  
+- **Payroll (Penggajian)** → CRUD data gaji karyawan.  
+- **Cuti (Leave)** → CRUD data pengajuan cuti.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 2. **Role Non-HR (IT, Keuangan, dll)**
+Hanya memiliki akses terbatas:
+- **Task** → Hanya dapat melihat daftar tugas.  
+- **Presence** → Dapat menambah kehadiran (Check In/Out).  
+- **Payroll** → Hanya dapat melihat dan cetak data penggajian pribadi.  
+- **Cuti (Leave)** → Dapat menambah pengajuan cuti dan melihat status.  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🗂️ Struktur Navigasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Menu | HR | Non-HR |
+|------|----|--------|
+| Dashboard | ✅ | ✅ |
+| Task | CRUD | Lihat Saja |
+| Employee | CRUD | ❌ |
+| Departemen | CRUD | ❌ |
+| Role | CRUD | ❌ |
+| Presence | CRUD | Tambah & Lihat |
+| Payroll | CRUD | Lihat Saja |
+| Cuti | CRUD | Tambah & Lihat |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🧩 Tampilan (Preview)
 
-## Contributing
+### 🔹 1. Halaman Awal / Login
+Tampilan default dari Laravel Breeze (Login & Register).  
+> ![Login Page](ss/login.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 🔹 2. Dashboard HR
+Menampilkan seluruh menu navigasi utama untuk pengelolaan karyawan:
+> ![Dashboard HR](ss/HR_Index.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+### 🔹 3. Dashboard Non-HR (IT / Keuangan)
+Tampilan lebih sederhana — hanya menampilkan **nama user** di bagian atas dan menu terbatas:
+> ![Dashboard Non-HR](ss/All_Index.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ⚙️Screenshots HR
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🧾 Task
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Add Task](ss/HR_Task_Add.png) |
+| Edit | ![Edit Task](ss/HR_Task_Edit.png) |
+| Delete | ![Delete Task](ss/HR_Task_Delete.png) |
+| Detail | ![Task Detail](ss/HR_Task_Show.png) |
+| Index | ![Task List](ss/HR_Task_index.png) |
+
+---
+
+### 👥 Employee
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Add Employee](ss/HR_Employee_Add.png) |
+| Edit | ![Edit Employee](ss/HR_Employee_Edit.png) |
+| Delete | ![Delete Employee](ss/HR_Employee_Delete.png) |
+| Detail | ![Detail Employee](ss/HR_Employee_Show.png) |
+| Index | ![Employee List](ss/HR_Employee_Index.png) |
+
+
+---
+
+### 🏢 Departemen
+| Aksi | Screenshot |
+|------|-------------|
+| Add (Check In) | ![Departemen Add](ss/HR_Departemen_Add.png) |
+| Edit | ![Departemen Edit](ss/HR_Departemen_Edit.png) |
+| Delete | ![Departemen Delete](ss/HR_Departemen_Delete.png) |
+| Detail | ![Departemen Detail](ss/HR_Departemen_Show.png) |
+| Index | ![Departemen Index](ss/HR_Departemen_Index.png) |
+
+---
+
+### 📅 Presence
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Presence Add](ss/HR_Presence_Add.png) |
+| Edit | ![Presence Edit](ss/HR_Presence_Edit.png) |
+| Delete| ![Presence Delete](ss/HR_Presence_Delete.png) |
+| Index| ![Presence Index](ss/HR_Presence_Index.png) |
+
+---
+
+### 💰 Payroll
+| Aksi | Screenshot |
+|------|-------------|
+| Add| ![Payroll Add](ss/HR_Payroll_Add.png) |
+| Edit | ![Payroll Edit](ss/HR_Payroll_Edit.png) |
+| Delete | ![Payroll Delete](ss/HR_Payroll_Delete.png) |
+| Detail | ![Payroll Detail](ss/HR_Payroll_Show.png) |
+| Index | ![Payroll Index](ss/HR_Payroll_Index.png) |
+| Cetak | ![Payroll Cetak](ss/HR_Payroll_Cetak.png) |
+
+---
+
+### 🌴 Cuti
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Add Leave](ss/HR_Cuti_Add.png) |
+| Edit | ![Edit Leave](ss/HR_Cuti_Edit.png) |
+| Delete | ![Delete Leave](ss/HR_Cuti_Delete.png) |
+| Index | ![List Leave](ss/HR_Cuti_Index.png) |
+
+---
+
+## ⚙️Screenshots Non-HR
+
+### 🧾 Task
+| Aksi | Screenshot |
+|------|-------------|
+| Index | ![Task List](ss/User_Task_Index.png) |
+
+---
+
+### 📅 Presence
+| Aksi | Screenshot |
+|------|-------------|
+| Checkin | ![Checkin Presence](ss/User_Presence_Add.png) |
+| Checkout | ![Checkout Presence](ss/User_Presence_Checkout.png) |
+| Index | ![Presence List](ss/User_Presence_Index.png) |
+
+---
+
+### 💰 Payroll
+| Aksi | Screenshot |
+|------|-------------|
+| Index | ![Task List](ss/User_Payroll_Index.png) |
+
+---
+
+### 🌴 Cuti
+| Aksi | Screenshot |
+|------|-------------|
+| Add | ![Add Task](ss/User_Cuti_Add.png) |
+| Index | ![Task List](ss/User_Cuti_Index.png) |
+
+---
+
+## 🧠 Teknologi yang Digunakan
+
+| Kategori | Teknologi |
+|-----------|------------|
+| Framework | Laravel 12 |
+| Autentikasi | Laravel Breeze |
+| Database | MySQL |
+| Frontend | Blade Bootstrap 5 |
+| Bahasa | PHP 8+, HTML, CSS, JS |
+| Tools | Composer, Artisan CLI |
+
+---
+
+## 🪜 Cara Menjalankan Proyek
+
+```bash
+# 1. Clone repository
+git clone https://github.com/username/nama-proyek.git
+cd nama-proyek
+
+# 2. Install dependencies
+composer install
+npm install && npm run dev
+
+# 3. Salin dan konfigurasi file .env
+cp .env.example .env
+php artisan key:generate
+
+# 4. Atur koneksi database di .env
+DB_DATABASE=hr_management
+DB_USERNAME=root
+DB_PASSWORD=
+
+# 5. Migrasi dan seeding database
+php artisan migrate --seed
+
+# 6. Jalankan server
+php artisan serve
